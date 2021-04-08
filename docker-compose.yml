@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    container_name: 'nest-jwt'
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: db-jwt-nest
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123456789
+    volumes:
+      - bd-nest-jwt-data:/data
+    networks:
+      - network-nest-jwt
+
+volumes:
+  bd-nest-jwt-data:
+
+networks:
+  network-nest-jwt:
+    driver: bridge
