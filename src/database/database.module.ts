@@ -13,6 +13,12 @@ import { Module } from '@nestjs/common';
       password: process.env.TYPEORM_PASSWORD,
       entities: [UserEntity],
       synchronize: false,
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
     }),
   ],
 })
